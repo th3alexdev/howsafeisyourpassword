@@ -1,0 +1,6 @@
+
+    @use '../utils/variables' as v;
+
+    @function getColorTheme($color) {
+        @return map-get(v.$theme-dark, $color)
+    }
