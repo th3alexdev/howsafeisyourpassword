@@ -1,0 +1,85 @@
+
+    @use '../utils/variables' as v;
+    @use '../utils/functions' as f;
+
+    @font-face {
+        font-family: 'Drstick';
+        src: url('../assets/fonts/Drystick-ExtraBold.ttf');
+    }
+
+    @font-face {
+        font-family: 'Arimo';
+        src: url('../../assets/fonts/Arimo-Bold.ttf');
+        font-weight: 700;
+        font-style: bold;
+    }
+
+    @font-face {
+        font-family: 'Arimo';
+        src: url('../../assets/fonts/Arimo-Medium.ttf');
+        font-weight: 500;
+        font-style: medium;
+    }
+
+    @font-face {
+        font-family: 'Arimo';
+        src: url('../../assets/fonts/Arimo-Regular.ttf');
+        font-weight: 400;
+        font-style: regular;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+    
+    body {
+        margin: 0;
+        font-family: 'Arimo', sans-serif;
+        color: f.getColorTheme('color');
+        background-color: f.getColorTheme('bg-body');
+    }
+
+    a {
+        color: f.getColorTheme('color');
+        text-decoration: none;
+    }
+
+    ul, ol {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    h1, h2, h3, h4, h5 {
+        margin: 0;
+    }
+
+    p {
+        margin: 0;
+    }
+
+    input {
+        width: 100%;
+        border: none;
+    }
+
+    // input, input:focus {
+    //     outline: none;
+    // }
+
+    textarea {
+        resize: none;
+        // border: none;
+        width: 100%;
+    }
+
+    textarea:focus {
+        outline: none;
+    }
+
+    img {
+        max-width: 100%;
+    }
