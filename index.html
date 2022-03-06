@@ -5,11 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Is your password strong?</title>
+    <script src="https://kit.fontawesome.com/bc13bbd577.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/styles.css">
     <script defer src="js/scripts.js"></script>
 </head>
 <body>
-    <div class="body-container">
+    <header class="header">
+        <div class="header__container">
+            <button id="btn-settings" class="btn btn--settings"><img src="assets/icons/gear-solid.svg" alt="Settings Button" class="icon icon--settings-dark"></button>
+        </div>
+        <nav id="nav" class="header-nav">    
+            <ul class="nav-list">
+                <li class="nav-list__item">
+                    <button class="btn btn--toggle"><span data-tooltip="Color" class="icon icon-nav icon-nav--color"></span></button>
+                </li>
+                <li class="nav-list__item">
+                    <button class="btn btn--toggle"><span data-tooltip="Theme" class="icon icon-nav icon-nav--theme icon-nav--theme-light"></span></button>
+                </li>
+                <li class="nav-list__item">
+                    <button class="btn btn--toggle"><span data-tooltip="Language" class="icon icon-nav icon-nav--lang icon-nav--lang-en"></span></button>
+                </li>
+            </ul>
+            <div class="tap"><div class="tap-animation"></div></div>
+            <p class="nav-info">Tap to switch</p>
+        </nav>
+    </header>
+    <main id="main" class="main">
         <section class="home">
             <div class="home__title-container">
                 <h1 class="title title--primary">How strong is your password?</h1>
@@ -22,188 +43,210 @@
         <section class="pw-section">
             <div class="pw-section__form">
                 <form class="form" id="form">
-                    <button id="show-password" class="show-password">
-                        <img src="assets/icons/eye-solid.svg" alt="" class="icon">
-                    </button>
-                    <label for="password">
-                        <input type="password" name="password" id="password" placeholder="Enter your password to analyze">
+                    <label for="password" class="label-password">
+                        <button id="show-password" class="btn btn--show-password">
+                            <i class="fa-solid fa-eye icon icon--input"></i>
+                            <!-- <img src="assets/icons/eye-solid.svg" alt="Show your password" class="icon icon--input"> -->
+                        </button>
+                        <input type="password" name="password" id="password" class="input-password" placeholder="Enter your password to analyze" autocomplete="no">
                     </label>
+                    <div class="line line--big"></div>
                 </form>
             </div>
             <div class="pw-section__data">
-                <div class="data-one">
-                    <h2 class="data-text data-text--big">Your password is</h2>
-                    <span class="shape">STRONG</span>
-                </div>
-                <div class="data-two">
-                    <div class="data-two__top">
-                        <p class="data-text data-text--small">It contains</p>
-                        <span class="shape">16 characters</span>
+                <div class="data data--one">
+                    <div class="data-one-container">
+                        <h2 class="text-data text-data--big">Your password is: <span class="shape shape--big display-data display-data--big">STRONG</span></h2>
                     </div>
-                    <div class="data-two__bottom">
-                        <p class="data-text data-text--small">Your password could be cracked in:</p>
-                        <span class="shape">3 days</span>
+                    <div class="line line--small"></div>
+                </div>
+                <div class="data data--two">
+                    <div class="data-two-container">
+                        <p class="text-data text-data--medium">It contains: </p><span class="shape display-data display-data--medium">16 characters</span>
+                        <p class="text-data text-data--medium">Your password could be cracked in: </p><span class="shape display-data display-data--medium">3 days</span>
                     </div>
                 </div>
-                <div class="data-three">
-                    <ul class="details-list">
-                        <li class="details-list__item">Lowercase letters<span class="shape"><i class="icon icon--check"></i></span></li>
-                        <li class="details-list__item">Uppercase Letters<span class="shape"><i class="icon icon--xmark"></i></span></li>
-                        <li class="details-list__item">Numbers<span class="shape"><i class="icon icon--xmark"></i></span></li>
-                        <li class="details-list__item">Symbols<span class="shape"><i class="icon icon--xmark"></i></span></li>
-                        <li class="details-list__item"><span class="shape"><i class="icon icon--xmark"></i></span>More than 8 characters</li>
-                        <li class="details-list__item"><span class="shape"><i class="icon icon--xmark"></i></span>Do not repeat characters</li>
+                <div class="data data--three">
+                    <div class="line line--small"></div>
+                    <div class="data-three-container">
+                        <p class="text-data text-data--medium text-data-item" data-tooltip="title-1">Lowercase letters</p>
+                        <span class="shape shape--small" data-tooltip="shape-1"><i class="icon icon--check"></i></span>
+                        
+                        <p class="text-data text-data--medium text-data-item" data-tooltip="title-2">Uppercase letters</p>
+                        <span class="shape shape--small" data-tooltip="shape-2"><i class="icon icon--xmark"></i></span>
+
+                        <p class="text-data text-data--medium text-data-item" data-tooltip="title-3">Numbers</p>
+                        <span class="shape shape--small" data-tooltip="shape-3"><i class="icon icon--xmark"></i></span>
+                        
+                        <p class="text-data text-data--medium text-data-item" data-tooltip="title-4">Symbols</p>
+                        <span class="shape shape--small" data-tooltip="shape-4"><i class="icon icon--xmark"></i></span>
+
+                        <p class="text-data text-data--medium text-data-item" data-tooltip="title-5">More than 8 characters</p>
+                        <span class="shape shape--small" data-tooltip="shape-5"><i class="icon icon--xmark"></i></span>
+
+                        <p class="text-data text-data--medium text-data-item" data-tooltip="title-6">Do not repeat characters</p>
+                        <span class="shape shape--small" data-tooltip="shape-6"><i class="icon icon--xmark"></i></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="split-sections">
+            <section class="more-data">
+                <div class="more-data__btn-container">
+                    <button id="show-data" class="link btn-show-data">More data for nerds <span class="icon icon--triangle downv"></span></button>
+                </div>
+                <div id="tables" class="tables">
+                    <div class="legends">
+                        <p class="legend legend--exceptional">Exceptional</p>
+                        <p class="legend legend--sufficient">Sufficient</p>
+                        <p class="legend legend--warning">Warning</p>
+                        <p class="legend legend--failure">Failure</p>
+                    </div>
+                    <div class="table-info-container">
+                        <h2 hidden>Info table</h2>
+                        <table class="table table-info">
+                            <col class="col">
+                            <col class="col">
+                            <col class="col">
+                            <thead class="table-head">
+                                <tr>
+                                    <th scope="col" class="table-head__item">Info</th>
+                                    <th scope="col" class="table-head__item">Count</th>
+                                    <th scope="col" class="table-head__item">Points</th>
+                                </tr>
+                            </thead>
+                            <tbody class="table-body">
+                                <tr class="row row-first">
+                                    <td class="table-body__item">Number of characters</td>
+                                    <td class="table-body__item">0</td>
+                                    <td class="table-body__item">0</td>
+                                </tr>
+                                <tr class="row">
+                                    <td class="table-body__item">Uppercase letters</td>
+                                    <td class="table-body__item">0</td>
+                                    <td class="table-body__item">0</td>
+                                </tr>
+                                <tr class="row">
+                                    <td class="table-body__item">Lowercase letters</td>
+                                    <td class="table-body__item">0</td>
+                                    <td class="table-body__item">0</td>
+                                </tr>
+                                <tr class="row">
+                                    <td class="table-body__item">Numbers</td>
+                                    <td class="table-body__item">0</td>
+                                    <td class="table-body__item">0</td>
+                                </tr>
+                                <tr class="row-last">
+                                    <td class="table-body__item">Symbols</td>
+                                    <td class="table-body__item">0</td>
+                                    <td class="table-body__item">0</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="table-deductions-container">
+                        <h2 hidden>Deductions table</h2>
+                        <table class="table table-deductions">
+                            <col class="col">
+                            <col class="col">
+                            <col class="col">
+                            <thead class="table-head">
+                                <tr>
+                                    <th scope="col" class="table-head__item">Deductions</th>
+                                    <th scope="col" class="table-head__item">Count</th>
+                                    <th scope="col" class="table-head__item">Points</th>
+                                </tr>
+                            </thead>
+                            <tbody class="table-body">
+                                <tr class="row row-first">
+                                    <td class="table-body__item">Letters only</td>
+                                    <td class="table-body__item">0</td>
+                                    <td class="table-body__item">0</td>
+                                </tr>
+                                <tr class="row">
+                                    <td class="table-body__item">Numbers only</td>
+                                    <td class="table-body__item">0</td>
+                                    <td class="table-body__item">0</td>
+                                </tr>
+                                <tr class="row">
+                                    <td class="table-body__item">Repeat characters</td>
+                                    <td class="table-body__item">0</td>
+                                    <td class="table-body__item">0</td>
+                                </tr>
+                                <tr class="row">
+                                    <td class="table-body__item">Consecutive uppercase letters</td>
+                                    <td class="table-body__item">0</td>
+                                    <td class="table-body__item">0</td>
+                                </tr>
+                                <tr class="row">
+                                    <td class="table-body__item">Consecutive lowercase letters</td>
+                                    <td class="table-body__item">0</td>
+                                    <td class="table-body__item">0</td>
+                                </tr>
+                                <tr class="row">
+                                    <td class="table-body__item">Consecutive numbers</td>
+                                    <td class="table-body__item">0</td>
+                                    <td class="table-body__item">0</td>
+                                </tr>
+                                <tr class="row">
+                                    <td class="table-body__item">Sequential letters</td>
+                                    <td class="table-body__item">0</td>
+                                    <td class="table-body__item">0</td>
+                                </tr>
+                                <tr class="row">
+                                    <td class="table-body__item">Sequential numbers</td>
+                                    <td class="table-body__item">0</td>
+                                    <td class="table-body__item">0</td>
+                                </tr>
+                                <tr class="row-last">
+                                    <td class="table-body__item">Sequential symbols</td>
+                                    <td class="table-body__item">0</td>
+                                    <td class="table-body__item">0</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>        
+            </section>
+            <section class="recommendations">
+                <div class="recommendations__title-container">
+                    <h2 class="title title--secondary">Recommendations</h2>
+                    <img src="assets/images/emojis/right-pointing_emoji.webp" alt="Hand emoji pointing recommendations" class="emoji emoji--recommendations">
+                </div>
+                <div class="recommendations__list-container">
+                    <ul class="recommendations-list">
+                        <li class="recommendations-list__item">Don't use personal information (such as your name, date of birth)</li>
+                        <li class="recommendations-list__item">Don't repeat characters (ex. 11111)</li>
+                        <li class="recommendations-list__item">Don't use keyboard patterns (ex. 12345 or qwrty)</li>
+                        <li class="recommendations-list__item">Should be greater than 8 characters</li>
+                        <li class="recommendations-list__item">Should include lowercase and uppercase letters.</li>
+                        <li class="recommendations-list__item">Should include numbers.</li>
+                        <li class="recommendations-list__item">Should include symbols.</li>
                     </ul>
                 </div>
-            </div>
-        </section>
-        <section class="recommendations">
-            <div class="recommendations__title-container">
-                <h2 class="title tittle--secondary">Recommendations</h2>
-                <img src="assets/images/emojis/right-pointing_emoji.webp" alt="Hand emoji pointing recommendations" class="emoji emoji--recomendations">
-            </div>
-            <div class="recommendations__list-container">
-                <ul class="recomendations-list">
-                    <li class="recommendations-list__item">Don't use personal information (such as your name, date of birth)</li>
-                    <li class="recommendations-list__item">Don't repeat characters (ex. 11111)</li>
-                    <li class="recommendations-list__item">Don't use keyboard patterns (ex. 12345 or qwrty)</li>
-                    <li class="recommendations-list__item">Should be greater than 8 characters</li>
-                    <li class="recommendations-list__item">Should include lowercase and uppercase letters.</li>
-                    <li class="recommendations-list__item">Should include numbers.</li>
-                    <li class="recommendations-list__item">Should include symbols.</li>
-                </ul>
-            </div>
-
-        </section>
-        <section class="about">
-            <div class="about__img-container">
-                <img src="https://avatars.githubusercontent.com/u/55007470?v=4" alt="Developer's avatar on GitHub">
-            </div>
-            <div class="about_info-container">
-                <h2 class="title title--about">Built by Alex</h2>
-                <a href="https://github.com/IamAleKs-0010" class="link" target="_blank">IamAleKs-0010</a>
-                <div class="socials">
-                    <a href="https://github.com/IamAleKs-0010" class="social-link" target="_blank"><img src="assets/icons/github-brands.svg" alt="GitHub icon link" class="icon icon--socials"></a>
-                    <a href="https://www.instagram.com/axfppg/" class="social-link" target="_blank"><img src="assets/icons/instagram-brands.svg" alt="Instagram icon link" class="icon icon--socials"></a>
+            </section>
+            <article id="about" class="about about--right">
+                <div class="about__img-container">
+                    <img src="https://avatars.githubusercontent.com/u/55007470?v=4" alt="Developer's avatar on GitHub" class="img img--avatar">
                 </div>
-            </div>
-        </section>
-        <section class="more-data">
-            <button id="show-data" class="link show-data">More data for nerds <span class="triangle-down"></span></button>
-            <div class="tables">
-                <div class="legends">
-                    <p class="legend legend--exceptional">Exceptional</p>
-                    <p class="legend legend--sufficient">Sufficient</p>
-                    <p class="legend legend--warning">Warning</p>
-                    <p class="legend legend--failure">Failure</p>
+                <div class="about__info-container">
+                    <h2 class="title title--about">Built by Alex</h2>
+                    <a href="https://github.com/IamAleKs-0010" class="link" target="_blank">IamAleKs-0010</a>
+                    <div class="socials">
+                        <a data-tooltip="GitHub" href="https://github.com/IamAleKs-0010" class="social-link" target="_blank"><img src="assets/icons/github-brands.svg" alt="GitHub icon link" class="icon icon--socials-dark"></a>
+                        <a data-tooltip="Instagram" href="https://www.instagram.com/axfppg/" class="social-link" target="_blank"><img src="assets/icons/instagram-brands.svg" alt="Instagram icon link" class="icon icon--socials-dark"></a>
+                    </div>
                 </div>
-                <div class="table-info-container">
-                    <h2 class="hidden">Info table</h2>
-                    <table class="table table-info">
-                        <thead class="table-head">
-                            <tr>
-                                <th>Info</th>
-                                <th>Count</th>
-                                <th>Points</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Number of characters</td>
-                                <td>0</td>
-                                <td>0</td>
-                            </tr>
-                            <tr>
-                                <td>Uppercase letters</td>
-                                <td>0</td>
-                                <td>0</td>
-                            </tr>
-                            <tr>
-                                <td>Lowercase letters</td>
-                                <td>0</td>
-                                <td>0</td>
-                            </tr>
-                            <tr>
-                                <td>Numbers</td>
-                                <td>0</td>
-                                <td>0</td>
-                            </tr>
-                            <tr>
-                                <td>Symbols</td>
-                                <td>0</td>
-                                <td>0</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="table-deductions-container">
-                    <h2 hidden>Deductions table</h2>
-                    <table class="table table-deductions">
-                        <thead class="table-head">
-                            <tr>
-                                <th>Deductions</th>
-                                <th>Count</th>
-                                <th>Points</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Letters only</td>
-                                <td>0</td>
-                                <td>0</td>
-                            </tr>
-                            <tr>
-                                <td>Numbers only</td>
-                                <td>0</td>
-                                <td>0</td>
-                            </tr>
-                            <tr>
-                                <td>Repeat characters</td>
-                                <td>0</td>
-                                <td>0</td>
-                            </tr>
-                            <tr>
-                                <td>Consecutive uppercase letters</td>
-                                <td>0</td>
-                                <td>0</td>
-                            </tr>
-                            <tr>
-                                <td>Consecutive lowercase letters</td>
-                                <td>0</td>
-                                <td>0</td>
-                            </tr>
-                            <tr>
-                                <td>Consecutive numbers</td>
-                                <td>0</td>
-                                <td>0</td>
-                            </tr>
-                            <tr>
-                                <td>Sequential letters</td>
-                                <td>0</td>
-                                <td>0</td>
-                            </tr>
-                            <tr>
-                                <td>Sequential numbers</td>
-                                <td>0</td>
-                                <td>0</td>
-                            </tr>
-                            <tr>
-                                <td>Sequential symbols</td>
-                                <td>0</td>
-                                <td>0</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </section>
+            </article>
+        </div>
         <section class="disclaimer">
-            <h2 class="title title--disclaimer">Disclaimer: </h2>
-            <p class="text text--disclaimer">This app is designed to show how secure your passwords are, it is not perfect or infallible, it only shows approximate statistics based on information extracted from computer security places. This website does not save or collect data of any kind.</p>
+            <h2 class="title title--disclaimer">Disclaimer:</h2>
+            <p class="text text--disclaimer">
+                This app is designed to show how secure your passwords are, it is not perfect or infallible, it only shows approximate statistics based on information extracted from computer security places. This website does not save or collect data of any kind.</p>
         </section>
-        <footer class="footer">
-            <p class="text text--footer">Copyright &copy; 2022 - All rights reserved</p>
-        </footer>
-    </div>
+    </main>
+    <footer class="footer">
+        <p class="text text--footer">Copyright &copy; 2022 - All rights reserved</p>
+    </footer>
 </body>
 </html>
