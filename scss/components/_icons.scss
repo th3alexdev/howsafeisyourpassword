@@ -1,0 +1,171 @@
+
+    @use '../utils/functions' as f;
+    @use '../utils/variables' as v;
+    
+    .icon {
+        width: 24px;
+        height: 24px;
+
+        &--socials-dark { 
+            filter: invert(1);
+        }
+
+        &--settings-dark {
+            width: inherit;
+            height: inherit;
+            filter: invert(1) drop-shadow(2px 2px 3px rgba(0 0 0 / 50%));
+        }
+
+        &--input {
+            height: 15px;
+            font-size: .9rem;
+            color: f.getColorPrimary('link');
+        }
+
+        &--check {
+           position: absolute;
+           display: inline-block;
+           top: 13px;
+           left: 5px;
+           width: 17px;
+           height: 5px;
+           background-color: #fff;
+           transform: rotate(135deg) translateX(-6px);
+ 
+           &::after {
+                position: absolute;
+                content: '';
+                top: 3px;
+                left: 10px;
+                width: 8.75px;
+                height: 5px;
+                transform: rotate(90deg) translateY(-.15px);
+                background-color: #fff;
+           }
+        }
+
+        &--xmark {
+            position: absolute;
+            display: inline-block;
+            top: 9px;
+            left: 6px;
+            width: 19px;
+            height: 4px;
+            background-color: #fff;
+            transform: rotate(45deg);
+            
+            &::before {
+                position: absolute;
+                content: '';
+                top: -7px;
+                left: 7px;
+                width: 4px;
+                height: 19px;
+                background-color: #fff;
+                transform: rotate(180deg) translateX(-.5px) translateY(.5px)
+            }
+        }
+
+        &--triangle {
+           position: absolute;
+           display: inline-block;
+           top: 9px;
+           right: -20px;
+           width: 15px;
+           height: 8px;
+           cursor: pointer;
+           filter: drop-shadow(5px 5px 3px rgba(0 0 0 / 0.24));
+           border-top: 9px solid f.getColorPrimary('link');
+           border-left: 8px solid transparent;
+           border-right: 8px solid transparent;
+           transform: rotate(0);
+           transition: transform .3s ease-in-out, filter .3s ease-in-out;
+           
+           @media (min-width:980px) {
+                width: 20px;
+                height: 13px;
+                top: 6px;
+                right: -32px;
+                border-top: 14px solid f.getColorPrimary('link');
+                border-left: 13px solid transparent;
+                border-right: 13px solid transparent;
+            }          
+
+           &--active{
+            transform: rotate(180deg);
+            filter: drop-shadow(-5px -5px 3px rgba(0 0 0 / 0.24));
+
+           }
+        }
+    }
+
+    .icon-nav {
+        position: relative;
+        width: 22px;
+        height: 22px;
+        margin-left: 8px; 
+        border-radius: 50px;
+
+        @media (min-width: 980px) {
+            width: 34px;
+            height: 34px;
+            margin: 0;
+        }
+
+
+        &::before {
+            position: absolute;
+            content: attr(data-tooltip);
+
+            @media (min-width: 980px) {
+                content: '';
+                display: none;
+            }
+        }
+
+        &--color {
+            background: f.getColorPrimary('purple');
+
+            &::before {
+                left: -95px;
+                top: -10px;
+            }
+        }
+
+        &--theme {
+            &::before {
+                left: -110px;
+                top: -10px;
+            }
+        }
+
+        &--theme-light {
+            background-color: #fff;
+        }
+
+        &--theme-dark {
+            background-color: #333;
+        }
+
+        &--lang {
+            &::before {
+                left: -155px;
+                top: -10px;
+            }
+        }
+
+        &--lang-es {
+            background-image: url('../assets/icons/spainlang-icon.png');
+            background-size: 135%;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        
+        &--lang-en {
+            background-image: url('../assets/icons/usalang-icon.png');
+            background-size: 145%;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    }
+    

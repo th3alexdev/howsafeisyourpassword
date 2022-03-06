@@ -1,0 +1,72 @@
+
+    @use '../utils/functions' as f;
+    @use '../utils/variables' as v;
+
+    .socials {
+        width: max-content;
+        height: max-content;
+        display: flex;
+        gap: 5px;
+    }
+
+    .social-link {
+        position: relative;
+
+        &:hover{ 
+
+            &::before {
+                position: absolute;
+                content: attr(data-tooltip);
+                top: 35px;
+                left: -28px;
+                height: 10px;      
+                width: 75px;  
+                color: rgba(216 216 216 / 95%);
+                background-color: rgba(0 0 0 / 45%);
+                font-size: .7rem;
+                font-weight: 900;
+                text-align: center;
+                padding: 4px 3px 10px 3px;
+                border-radius: 5px;
+                opacity: 0;
+
+                animation: {
+                    name: socialHover;
+                    duration: .3s;
+                    delay: .2s;
+                    timing-function: ease-in-out;
+                }
+            }
+
+            &::after {
+                position: absolute;
+                content: '';
+                top: 26px;
+                left: 5px;
+                width: 1px;
+                height: 1px;
+                border-right: 8px solid transparent;
+                border-bottom: 8px solid rgba(0 0 0 / 45%);
+                border-left: 8px solid transparent;
+                opacity: 0;
+
+                animation: {
+                    name: socialHover;
+                    duration: .3s;
+                    delay: .2s;
+                    timing-function: ease-in-out;
+                }
+            }
+        }
+    }
+
+    @keyframes socialHover { 
+        0% {
+            opacity: 0;
+            transform: translateY(15px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0px);
+        }
+    }

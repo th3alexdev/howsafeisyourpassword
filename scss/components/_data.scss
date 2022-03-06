@@ -1,0 +1,112 @@
+
+    @use '../utils/functions' as f;
+    @use '../utils/variables' as v;
+    @use '../utils/mixins' as *;
+
+
+    .data {
+        width: 100%;
+        position: relative;
+        
+        @media (min-width: 980px) {
+            width: 32%;
+            min-width: 300px;
+            max-width: 500px;
+            margin: 0 auto;
+            align-self: center;
+            flex-grow: 1;
+            display: flex; 
+            align-items: center;
+        }
+
+        &--one {
+            @media (min-width: 1200px) { 
+                max-width: 30%;
+            }
+
+            @media (min-width: 1200px) and (max-width: 1300px) {
+                padding-left:  3%;
+            }
+
+            @media (min-width:1300px) {
+                padding-left: 55px;
+            }
+
+        }
+
+        &--two {
+            display: flex;
+            justify-content: center;
+
+            @media (min-width: 1200px) { 
+                max-width: 30%;
+                padding-right: 3%;
+            }
+
+        }
+
+        &--three {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            
+            @media (min-width: 1200px) { 
+                max-width: 40%;
+            }
+        }
+
+        &-one-container {
+            position: relative;
+            width: max-content;
+            height: max-content;
+            text-align: center;
+
+            @media (min-width: 390px) and (max-width: 980px) {
+                margin-left: 4%;
+            }
+        }
+
+        &-two-container {
+            width: max-content;
+            display: grid;
+            grid-template-columns: minmax(min-content, 60%) 100px;
+            grid-template-rows: repeat(2, max-content);
+            grid-template-areas: "title shape"
+                                 "title shape";
+            align-items: center;
+            text-align: right;
+            row-gap: 8px;
+
+            @media (min-width: 390px) and (max-width: 980px) {
+                margin-left: 8%;
+            }
+
+            @media (min-width: 980px) {
+                max-width: 340px; 
+            }
+
+        }
+
+        &-three-container {
+            width: 100%;
+            max-width: 300px;
+            display: grid;
+            grid-template-columns: 80% 20%;
+            grid-template-rows: repeat(6, max-content);
+            text-align: right;
+            align-items: center;
+
+            @media (min-width: 390px) and (max-width: 980px) {
+                margin-right: 4%;
+            }
+
+            @media (min-width: 1300px) {
+                max-width: 650px;
+                grid-template-columns: 35% 10% 10% 45%;
+                grid-template-rows: repeat(4, max-content);
+                align-items: center;
+                justify-content: flex-end;
+            }
+        }
+    }
+

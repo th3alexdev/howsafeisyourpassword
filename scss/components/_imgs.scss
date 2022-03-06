@@ -1,0 +1,110 @@
+
+    .emoji { 
+        width: 85px;
+        filter: drop-shadow(9px 9px 9px rgba(0 0 0 / 30%));
+        transform: translateY(0);
+
+        &--home {
+            display: inline-block;
+            margin-top: -9px;
+            animation: {
+                name: emojiBounce;
+                duration: 5s;
+                timing-function: ease-in-out;
+                iteration-count: infinite;
+                direction: alternate;
+            };
+            
+            @media (min-width: 1035px) {
+                position: absolute;
+                top: -20px;
+                right: -90px;
+                margin-top: 0;
+            }
+        }
+
+        &--recommendations {
+            position: absolute;
+            top: -45px;
+            right: -95px;
+            width: 160px;
+            transform: scaleX(-1) rotate(-7deg);
+
+            animation: {
+                name: emojiPointingLeft;
+                duration: 1.5s;
+                timing-function: ease-in-out;
+                direction: alternate;
+            };
+
+            @media (min-width:980px) and (max-width: 1775px) {
+                top: 25px;
+                left: -150px;
+                transform: scaleX(1) rotate(-45deg);
+                animation-name: emojiPointingRightOne
+            }
+
+            @media (min-width: 1776px) {
+                top: -30px;
+                left: -180px;
+                transform: scaleX(1) rotate(-14deg);
+                animation-name: emojiPointingRightTwo
+            }
+        }
+    }
+
+    .img {
+
+        &--avatar { 
+            border-radius: 50%;
+            max-width: 90px;
+        }
+    }
+
+    @keyframes emojiBounce {
+        0% {
+            transform: translateY(0px);
+        }        
+        50% {
+            transform: translateY(5px);
+        }
+        100% {
+            transform: translateY(-5px);
+        }
+    }
+
+    @keyframes emojiPointingLeft {
+        0% {
+            opacity: 0;
+            transform: scaleX(-1) rotate(-90deg) translateX(-105px) translateY(-105px);
+            
+        }        
+        100% {
+            opacity: 1;
+            transform: scaleX(-1) rotate(-7deg) translateX(0) translateY(0);
+        }
+    }
+
+    @keyframes emojiPointingRightOne {
+        0% {
+            opacity: 0;
+            transform: rotate(-90deg) translateX(-105px) translateY(-105px);
+            
+        }        
+        100% {
+            opacity: 1;
+            transform: rotate(-45deg) translateX(0) translateY(0);
+        }
+    }
+
+    @keyframes emojiPointingRightTwo {
+        0% {
+            opacity: 0;
+            transform: rotate(-90deg) translateX(-105px) translateY(-105px);
+            
+        }        
+        100% {
+            opacity: 1;
+            transform: rotate(-14deg) translateX(0) translateY(0);
+        }
+    }

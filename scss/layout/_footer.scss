@@ -1,0 +1,17 @@
+
+    @use '../utils/functions' as f;
+    @use '../utils/variables' as v;
+    @use '../utils/mixins' as *;
+
+    .footer {
+        width: 100%;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: f.getColorTheme('bg-secondary');
+
+        @include query ('tablet-md', 'laptop-l', null) {
+            height: 75px;
+        }
+    }

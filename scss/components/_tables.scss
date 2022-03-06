@@ -1,0 +1,177 @@
+
+    @use '../utils/functions' as f;
+    @use '../utils/variables' as v;
+
+    .legends {
+        width: max-content;
+        height: 14px;
+        padding-left: 10px;
+        margin: 0 auto 10px auto;
+        display: flex;
+        gap: 28px;
+
+        @media (min-width:980px) {
+            gap: 32px;
+            margin-bottom: 15px;
+        }     
+    }
+
+    .legend {
+        position: relative;
+        width: max-content;
+        height: 10px;
+        font: {
+            family: 'Arimo';
+            weight: 700;
+            size: .6rem;
+        }
+
+        @media (min-width:980px) {
+            font-size: .75rem;
+        }     
+
+        &::before {
+            position: absolute;
+            content: '';
+            top: 3px;
+            left: -10px;
+            width: 6px;
+            height: 6px;
+            border-radius: 15px;
+            border: 1px solid #fff;
+
+            @media (min-width:980px) {
+                width: 10px;
+                height: 10px;
+                top: 3px;
+                left: -19px;
+                border: 2px solid #fff;
+            }     
+        }
+
+        &--exceptional::before {
+            background-color: f.getColorPalette('exceptional');
+        }
+
+        &--sufficient::before {
+            background-color: f.getColorPalette('sufficient');
+        }  
+
+        &--warning::before {
+            background-color: f.getColorPalette('warning');
+        }    
+
+        &--failure::before {
+            background-color: f.getColorPalette('failure');
+        }   
+
+    }
+
+    .tables {
+        max-width: 600px;
+        margin: 0 auto;
+        padding-top: 35px;
+        transform: translateY(-100%);
+        z-index: -50;
+        height: 0;
+        overflow: hidden;
+        transition: height .5s ease, transform .3s ease;
+
+        @media (min-width:980px) {
+            padding-top: 50px;
+        }          
+
+        &--active {
+            height: 570px;
+            transform: translateY(0%);
+
+            @media (min-width:980px) {
+                height: 700px;
+            }          
+        }
+    }
+
+    .table {
+        width: 100%;
+        margin-bottom: 35px;
+        background-color: f.getColorTheme('bg-thirtiary');
+        padding: 0;
+        border-collapse: collapse;
+        border-spacing: 0;
+        table-layout: fixed;
+
+        &-head { 
+            font-family: 'Drstick';
+            text-align: left;
+            font-size: .8rem;
+            padding: 5px 10px;
+            background: f.getColorPrimary('purple');
+            padding: 10px;
+
+            &__item {
+                padding: 6px 10px;
+
+                    
+                @media (min-width:980px) {
+                    font-size: .9rem;
+                    height: 45px;
+                }           
+
+            }
+        }
+
+        &-head :first-child {
+            width: 55%;
+        }
+
+        &-head :nth-child(2) {
+            width: 22.5%;
+        }
+
+        &-head :last-child {
+            width: 22.5%;
+        }
+
+        .table-body {
+            font-family: 'Arimo';
+            font-weight: 700;
+            font-size: .8rem;
+            line-height: 12px;
+            letter-spacing: -0.3px;
+
+            &__item {
+                padding: 6px 5px 6px 10px;
+                
+                @media (min-width:980px) {
+                    height: 35px;
+                    font-size: .9rem;
+                    padding-left: 15px;
+                }     
+            }
+        }
+    }
+    
+    .col {
+        &:first-child {
+            border-right: 1px solid rgba(156 78 251 / 25%);
+        }
+        &:nth-child(2) {
+            border-right: 1px solid rgba(156 78 251 / 25%);
+        }
+    }
+
+    .row {
+        border-bottom: 1px solid rgba(156 78 251 / 25%);
+    }    
+
+    .row-first {
+        .table-body__item {
+            padding-top: 12px;
+        }
+    }
+
+    .row-last {
+        .table-body__item {
+            padding-bottom: 12px;
+        }
+    }

@@ -1,0 +1,40 @@
+
+    @use '../utils/functions' as f;
+    @use '../utils/variables' as v;
+
+    .recommendations-list {
+        width: 95%;
+        padding-left: 15px;
+        margin: 0 auto ;
+        font-size: .8rem;
+        font-family: 'Arimo';
+        font-weight: 700;
+        
+        &__item {
+            margin-bottom: 5px;
+        }
+    }
+
+    .nav-list {
+        width: max-content;
+        display: flex;
+        margin-top: -25px;
+        flex-direction: column;
+        gap: 25px;
+        list-style-type: none;
+        align-self: center;
+
+        @media (min-width: 980px) {
+            width: 35px;
+            gap: 15px;
+            padding-top: 30px;
+            height: inherit;
+            margin-top: 0;
+        }   
+
+        &__item {
+            @media (min-width: 980px) {
+                height: 35px;
+            }   
+        }
+    }

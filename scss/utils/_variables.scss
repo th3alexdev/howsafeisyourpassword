@@ -6,8 +6,28 @@
         'failure': #d83941,
     );
 
+    $primaryColor: (
+        'purple': (
+            rgb(97,0,216)
+            linear-gradient(180deg, rgba(97,0,216,1) 0%, rgba(114,0,255,1) 100%)
+        ),
+        'link': #7b27e6
+    );
+
     $theme-dark: (
         'color': #fff,
-        'bg-body': #29292d,
-        'bg-secondary': #1c1c21
+        'bg-body': #26242a,
+        'bg-secondary': #1c1c21,
+        'bg-thirtiary': #313135
+    );
+
+    $bks: (
+        'mb-s': 320px,
+        'mb-md': 375px,
+        'mb-l': 425px,
+        'tablet-s': 610px,
+        'tablet-md': 768px,
+        'laptop-s': 1024px,
+        'laptop-l': 1440px,
+        'laptop-uw': 2000px
     )

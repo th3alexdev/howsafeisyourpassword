@@ -1,0 +1,10 @@
+
+    @use '../utils/functions' as f;
+    @use '../utils/variables' as v;
+
+    .disclaimer {
+        width: 85%;
+        max-width: 680px;
+        margin: 0 auto 10px auto;
+        text-align: center;
+    }

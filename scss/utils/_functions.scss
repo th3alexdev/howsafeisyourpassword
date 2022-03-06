@@ -3,4 +3,16 @@
 
     @function getColorTheme($color) {
         @return map-get(v.$theme-dark, $color)
+    };
+
+    @function getColorPrimary($color) {
+        @return map-get(v.$primaryColor, $color)
+    };
+
+    @function getColorPalette($color) { 
+        @return map-get(v.$palette, $color)
+    };
+
+    @function getBk($name) {
+        @return map-get(v.$bks, $name);
     }

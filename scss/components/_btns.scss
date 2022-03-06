@@ -1,0 +1,62 @@
+
+    @use '../utils/functions' as f;
+    @use '../utils/variables' as v;
+
+    .btn {
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+
+        &--settings { 
+            width: 23px;
+            height: 23px;
+            transform: rotate(0deg);
+            transition: transform .8s ease-in-out;
+
+            &-active {
+                transform: rotate(360deg);
+            }
+
+            @media (min-width: 980px) {
+                width: 40px;
+                height: 40px;
+             }
+        }
+
+        &--show-password {
+            position: absolute;
+            right: 15px;
+            display: none;
+
+            &-active {
+                display: inline-block;
+            }
+        }
+
+        &--toggle {
+            width: 150px;
+            font: {
+                weight: 700;
+                family: 'Drstick';
+                size: 1.5rem;
+            }
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+
+            @media (min-width: 980px) {
+                width: 35px;
+                height: inherit;
+                align-content: center;
+            }
+        }
+    }
+
+    .btn-show-data {
+        position: relative;
+        width: max-content;
+        height: max-content;
+        cursor: pointer;
+        text-shadow: 5px 5px 3px rgba(0 0 0 / 0.24);
+    }

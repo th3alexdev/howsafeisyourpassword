@@ -1,0 +1,15 @@
+
+    @use '../utils/functions' as f;
+    @use '../utils/variables' as v;
+
+    .link {
+        display: inline-block;
+        margin-bottom: 5px;
+        font-weight: 700;
+        font-size: .9rem;
+        color: f.getColorPrimary('link');
+        
+        &:hover{
+            text-decoration: underline;
+        }
+    }

@@ -1,0 +1,56 @@
+    
+    @use '../utils/functions' as f;
+    @use '../utils/variables' as v;
+
+    .line {
+        height: 1px;
+        margin: 0 auto;
+        background-color: rgba(76 0 173 / 75%);
+        
+        &--small {
+            height: 1px;
+            width: 130px;
+            margin: 25px auto 25px auto;
+
+            @media (min-width: 980px) {
+                position: absolute;
+                width: 150px;
+                transform: rotate(90deg);
+
+                &:first-child {
+                    left: -40px;
+                    top: 60px;
+
+                }
+                &:last-child {
+                    right: -60px;
+                }
+            }
+       }
+
+        &--big {
+            width: 96%;
+            max-width: 390px;
+            margin-top: 18px;
+
+            @media (min-width:1300px) {
+                
+                margin-top: 30px;
+            }
+    
+        }
+    }
+
+    .line--small {
+        @media (min-width:1300px) {
+            width: 125px;
+            &:first-child {
+                top: 32px;
+                left: -63px;
+            }
+
+            &:last-child {
+                right: -63px;
+            }   
+        }
+    }

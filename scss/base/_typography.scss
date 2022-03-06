@@ -1,26 +1,180 @@
 
-    @font-face {
-        font-family: 'Drstick';
-        src: url('../assets/fonts/Drystick-ExtraBold.ttf');
+    @use '../utils/functions' as f;
+    @use '../utils/variables' as v;
+    @use '../utils/mixins' as *;
+
+    html {
+        font-size: 16px;
     }
 
-    @font-face {
-        font-family: 'Arimo';
-        src: url('../../assets/fonts/Arimo-Bold.ttf');
-        font-weight: 700;
-        font-style: bold;
+      @media screen and (min-width: 320px) {
+        html {
+          font-size: calc(16px + 6 * ((100vw - 320px) / 680));
+        }
+      }
+
+      @media screen and (min-width: 1000px) {
+        html {
+          font-size: 22px;
+        }
     }
 
-    @font-face {
-        font-family: 'Arimo';
-        src: url('../../assets/fonts/Arimo-Medium.ttf');
-        font-weight: 500;
-        font-style: medium;
+    .title {
+        &--primary { 
+            font-family: 'Drstick';
+            font-size: 2.2rem;
+            line-height: 33px;
+            text-shadow: 9px 9px 9px rgba(0 0 0 / 30%);
+
+            @media (min-width: 1035px) {
+                font-size: 2.6rem
+            }
+
+            @media (min-width: 1500px) {
+                font-size: 3.5rem
+            }
+        }
+
+        &--secondary {
+            margin-bottom: 10px;
+            font-family: 'Drstick';
+            font-size: 1.2rem;
+        }
+
+        &--about{
+            font-size: 1.3rem;
+        }
+
+        &--disclaimer {
+            display: inline;
+            font-size: .5rem;
+            color: #b4b4b4;
+            font-weight: 700;
+        }
     }
 
-    @font-face {
-        font-family: 'Arimo';
-        src: url('../../assets/fonts/Arimo-Regular.ttf');
-        font-weight: 400;
-        font-style: regular;
+    .text{ 
+
+        &--info {
+            font: {
+                family: 'Arimo';
+                weight: 700;
+            }
+            line-height: 16px;
+        }
+
+        &--disclaimer {
+            font-size: .5rem;
+            color: #b4b4b4;
+            font-weight: 700;
+        }
+
+        &--footer {
+            font-size: .7rem;
+            font-weight: 900;
+        }
+
+        &-data {
+            display: inline-block;
+            font-size: 1rem;
+
+            &-item {
+                
+                @media (min-width: 1300px) {
+            
+                    &:nth-of-type(1) {
+                        order: 1;
+                        grid-row: 1 / 2;
+                        grid-column: 1 / 2;
+                    }
+                    &:nth-of-type(2) {
+                        order: 3;
+                        grid-row: 2 / 3;
+                        grid-column: 1 / 2;
+                    }
+                    &:nth-of-type(3) {
+                        order: 5;
+                        grid-row: 3/ 4;
+                        grid-column: 1 / 2;
+                    }
+                    
+                    &:nth-of-type(4) {
+                        order: 2;
+                        grid-row: 4 / 5;
+                        grid-column: 1 / 2;
+                    }
+                    
+                    &:nth-of-type(5) {
+                        order: 4;
+                        grid-row: 1 / 2;
+                        grid-column: 4 / 5;
+                        text-align: left;
+                    }
+    
+                    &:nth-of-type(6) {
+                        order: 6;
+                        grid-row: 2 / 3;
+                        grid-column: 4 / 5;
+                        text-align: left;
+                    }
+                }
+            }
+
+            &--medium {
+                letter-spacing: -0.5px;
+                font: {
+                    size: .9rem;
+                    family: 'Arimo';
+                    weight: 700
+                }
+            }
+
+            &--big {
+                position: relative;
+                left: -15px;
+                font: {
+                    size: 1.2rem;
+                }
+            }
+        }
+    }
+
+    .display-data { 
+        &--medium {
+            font: {
+                size: .8rem;
+                family: 'Arimo';
+                weight: 700
+            }
+        }
+        &--big {
+            font: {
+                size: 2.5rem;
+                family: 'Arial';
+                weight: 900
+            }
+        }
+    }
+
+    .underline {
+        position: relative;
+        width: max-content;
+        margin-top: 10px;
+        display: block;
+
+        &::before { 
+            position: absolute;
+            content: '';
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 1.5px;
+            background-color: orangered;
+            border-radius: 50px;
+        }
+                    
+        @media (min-width: 650px) {
+            margin: 8px auto 0 auto;
+            text-align: center;
+        }
     }
